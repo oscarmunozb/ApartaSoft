@@ -1,0 +1,25 @@
+extends ../default
+
+block content
+  include ../templates/nav
+
+  div(class=['ui', 'container', 'grid', 'stackable'])
+    div(class=['sixteen', 'wide', 'column'])
+      h1(class=['ui','header','blue', 'dividing'])= 'Lista de instrumentos'
+
+      table(class=['ui', 'table', 'celled'] id='tbl-instrumento')
+        thead
+          tr
+            th= 'Cod Referencia'
+            th= 'Nombre'
+            th= 'Descripcion'
+            th= 'Estado'
+            th= 'Acciones'
+        tbody
+          each instrumentos in instrumento
+            tr
+              td= instrumentos.ID_INSTRUMENTO
+              td= instrumentos.NOMBRE_INSTRUMENTO
+              td= instrumentos.DESCRIPCION
+              td= instrumentos.ESTADO
+              td= 'Eliminar Modificar'

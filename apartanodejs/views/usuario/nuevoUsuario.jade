@@ -1,0 +1,45 @@
+extends ../default
+
+block content
+
+  div(class=['ui', 'container', 'grid', 'stackable'])
+    div(class=['ten', 'wide', 'column'])
+      h1(class=['ui','header','blue', 'dividing'])= 'Crear Usuario'
+
+      div(class='form-nuevousuario')
+        form(class=['ui', 'form'] action='http://localhost:3000/crearusuario' method='post')
+          div(class=['ui', 'field'])
+            label(for='id_usuario')= 'Cédula'
+            input(type= 'text' name='id_usuario' placeholder='Cédula')
+          div(class=['ui', 'field'])
+            label(for='nombre')= 'Nombre'
+            input(type= 'text' name='nombre' placeholder='Nombre')
+          div(class=['ui', 'field'])
+            label(for='apellidos')= 'Apellidos'
+            input(type= 'text' name='apellidos' placeholder='Apellidos')
+          div(class=['ui', 'field'])
+              label(for='telefono')= 'Telefono'
+              input(type= 'text' name='telefono' placeholder='Telefono')
+          div(class=['ui', 'field'])
+              label(for='direccion')= 'Dirección'
+              input(type= 'text' name='direccion' placeholder='Dirección')
+          div(class=['ui', 'field'])
+              label(for='email')= 'Email'
+              input(type= 'text' name='email' placeholder='Email')
+          div(class=['ui', 'field'])
+              label(for='rol')= 'Rol'
+              input(type= 'text' name='rol' placeholder='Rol')
+          div(class=['ui', 'field'])
+              label(for='password')= 'Password'
+              input(type= 'password' name='password' placeholder='Password')
+          button(class=['ui', 'button', 'basic', 'black'])= 'Crear Usuario'
+          a(class=['ui button secondary'] href='http://localhost:3000/login')= 'Inicio Sesion'
+          div(class=['ui', 'message', 'error'])
+
+      if info != undefined
+        div(class=['ui', 'message', 'success'])
+          i(class=['close', 'icon'])
+          div(class='header')='Usuario registrado'
+          p= info
+
+  script(src='/javascripts/validacion.js')

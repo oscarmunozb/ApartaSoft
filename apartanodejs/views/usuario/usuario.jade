@@ -1,0 +1,31 @@
+extends ../default
+
+block content
+  include ../templates/nav
+
+  div(class=['ui', 'container', 'grid', 'stackable'])
+    div(class=['sixteen', 'wide', 'column'])
+      h1(class=['ui','header','blue', 'dividing'])= 'Lista de Usuario'
+
+      table(class=['ui', 'table', 'celled'] id='tbl-usuario')
+        thead
+          tr
+            th= 'Cédula'
+            th= 'Nombre'
+            th= 'Apellidos'
+            th= 'Telefono'
+            th= 'Dirección'
+            th= 'Email'
+            th= 'Rol'
+            th= 'Acciones'
+        tbody
+          each usuarios in usuario
+            tr
+              td= usuarios.ID_USUARIO
+              td= usuarios.NOMBRE
+              td= usuarios.APELLIDOS
+              td= usuarios.TELEFONO
+              td= usuarios.DIRECCION
+              td= usuarios.EMAIL
+              td= usuarios.ID_ROL
+              td= 'Eliminar Modificar'

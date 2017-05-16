@@ -1,0 +1,27 @@
+extends ../default
+
+block content
+
+  div(class=['ui', 'container', 'grid', 'stackable'])
+    div(class=['ten', 'wide', 'column'])
+      h1(class=['ui','header','blue', 'dividing'])= 'Login'
+
+      div(class='form-login')
+        form(class=['ui', 'form'] action='http://localhost:3000/login' method='post')
+          div(class=['ui', 'field'])
+            label(for='cedula')= 'Cédula'
+            input(type= 'text' name='cedula' placeholder='Cédula')
+          div(class=['ui', 'field'])
+              label(for='password')= 'Password'
+              input(type= 'password' name='password' placeholder='Password')
+          button(class=['ui', 'button', 'primary'])= 'Ingresar'
+          a(class=['ui button secondary'] href='http://localhost:3000/nuevoUsuario')= 'Registrar'
+          div(class=['ui', 'message', 'error'])
+
+      if info != undefined
+        div(class=['ui', 'message', 'negative'])
+          i(class=['close', 'icon'])
+          div(class='header')='Lo sentimos!!'
+          p= info
+
+  script(src='/javascripts/validacion.js')

@@ -1,0 +1,27 @@
+extends ../default
+
+block content
+  include ../templates/nav
+
+  div(class=['ui', 'container', 'grid', 'stackable'])
+    div(class=['sixteen', 'wide', 'column'])
+      h1(class=['ui','header','blue', 'dividing'])= 'Lista de reservas'
+
+      table(class=['ui', 'table', 'celled'] id='tbl-reserva')
+        thead
+          tr
+            th= 'Codigo usuario'
+            th= 'Codigo Instrumento'
+            th= 'Fecha Asignación'
+            th= 'Hora'
+            th= 'Descripción'
+            th= 'Acciones'
+        tbody
+          each reservas in reserva
+            tr
+              td= reservas.ID_USUARIO
+              td= reservas.ID_INSTRUMENTO
+              td= reservas.FECHA_ASIGNACION
+              td= reservas.HORA
+              td= reservas.DESCRIPCION
+              td= 'Eliminar Modificar'
