@@ -41,7 +41,7 @@ module.exports = {
 			TELEFONO : req.body.telefono,
 			DIRECCION : req.body.direccion,
 			EMAIL : req.body.email,
-			ID_ROL : req.body.rol,
+			ROL_ID_ROL : req.body.rol,
 			PASSWORD : req.body.password
 		}
 
