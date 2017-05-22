@@ -1,0 +1,37 @@
+extends ../default
+
+block content
+  include ../templates/nav
+
+  div(class=['ui', 'container', 'grid', 'stackable'])
+    div(class=['ten', 'wide', 'column'])
+      h1(class=['ui','header','blue', 'dividing'])= 'Modificar instrumento o Sala'
+
+      div(class='form-nuevoinstrumento')
+        form(class=['ui', 'form'] action='http://localhost:3000/editar' method='post')
+          div(class=['ui', 'field'])
+            label(for='nombre')= 'Nombre Instrumento o Sala'
+            input(type= 'text' name='nombre' placeholder='Nombre' value=instrumento[0].NOMBRE_INSTRUMENTO)
+
+          div(class=['ui', 'field'])
+            label(for='descripcion')= 'Descripción'
+            input(type= 'text' name='descripcion' placeholder='Descripción' value=instrumento[0].DESCRIPCION)
+
+          div(class=['ui', 'field'])
+              label(for='estado')= 'Estado'
+              input(type= 'text' name='estado' placeholder='Estado' value=instrumento[0].ESTADO)
+
+          div(class=['ui', 'field'])
+              label(for='referencia')= 'Referencia'
+              input(type= 'text' name='referencia' placeholder='Referencia' value=instrumento[0].CODIGO_REFERENCIA)
+          
+          div(class=['ui', 'field'])
+              label(for='tipo')= 'Tipo'
+              input(type= 'text' name='tipo' placeholder='Tipo' value=instrumento[0].TIPO)
+
+              input(type= 'hidden' name='id_instrumento' value=instrumento[0].ID_INSTRUMENTO)
+
+          button(class=['ui', 'button', 'basic', 'black'])= 'Modificar'
+          div(class=['ui', 'message', 'error'])
+
+  script(src='/javascripts/validacion.js')

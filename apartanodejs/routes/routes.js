@@ -10,6 +10,9 @@ router.get('/', controllers.homecontroller.index);
 router.get('/instrumento',controllers.instrumentocontroller.getIntrumento);
 router.get('/nuevo',controllers.instrumentocontroller.getNuevoInstrumento);
 router.post('/crearinstrumento',controllers.instrumentocontroller.postNuevoInstrumento);
+router.post('/eliminarInstrumento',controllers.instrumentocontroller.postEliminarInstrumento);
+router.get('/modificar/:id',controllers.instrumentocontroller.getEditarInstrumento);
+router.post('/editar',controllers.instrumentocontroller.postModificarInstrumento);
 
 //rutas para usuarios
 router.get('/usuario',controllers.usuariocontroller.getUsuario);

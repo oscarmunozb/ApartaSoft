@@ -13,13 +13,22 @@ block content
             th= 'Cod Referencia'
             th= 'Nombre'
             th= 'Descripcion'
+            th= 'Tipo'
             th= 'Estado'
             th= 'Acciones'
         tbody
           each instrumentos in instrumento
             tr
-              td= instrumentos.ID_INSTRUMENTO
+              td(id='identificador')= instrumentos.ID_INSTRUMENTO
               td= instrumentos.NOMBRE_INSTRUMENTO
               td= instrumentos.DESCRIPCION
+              td= instrumentos.TIPO
               td= instrumentos.ESTADO
-              td= 'Eliminar Modificar'
+              td
+                a(class=['ui button basic icon'] href='#' data-tooltip='Eliminar' data-position = 'top center' id='btn-eliminar')
+                  i(class=['trash icon'])
+
+                a(class=['ui button basic icon'] href='http://localhost:3000/modificar/'+instrumentos.ID_INSTRUMENTO data-tooltip='Modificar' data-position = 'top center')
+                  i(class=['edit icon'])
+
+  script(src='/javascripts/instrumentos.js')
