@@ -18,6 +18,7 @@ router.post('/editar',controllers.instrumentocontroller.postModificarInstrumento
 router.get('/usuario',controllers.usuariocontroller.getUsuario);
 router.get('/nuevoUsuario',controllers.usuariocontroller.getNuevoUsuario);
 router.post('/crearusuario',controllers.usuariocontroller.postNuevoUsuario);
+router.post('/eliminarUsuario',controllers.usuariocontroller.postEliminarUsuario);
 
 //rutas para reserva
 router.get('/reserva',controllers.reservacontroller.getReserva);

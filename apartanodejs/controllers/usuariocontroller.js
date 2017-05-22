@@ -57,5 +57,27 @@ module.exports = {
 
 		res.render('usuario/nuevoUsuario',{info : 'usuario creado correctamente'});
 
+	},
+
+		postEliminarUsuario : function(req, res, next){
+
+		var id = req.body.id;
+
+		var config = require('.././database/config');
+
+		var db = mysql.createConnection(config);
+		db.connect();
+
+		var respuesta = {res: false};
+
+		db.query('DELETE FROM USUARIO WHERE ID_USUARIO = ?', id , function(err, rows, fields){
+			if (err)throw err;
+			
+			db.end();
+			respuesta.res = true;
+
+			res.json(respuesta);
+
+		});
 	}
 }

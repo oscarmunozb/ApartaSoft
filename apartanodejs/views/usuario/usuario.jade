@@ -21,11 +21,18 @@ block content
         tbody
           each usuarios in usuario
             tr
-              td= usuarios.ID_USUARIO
+              td(id='identificador')= usuarios.ID_USUARIO
               td= usuarios.NOMBRE
               td= usuarios.APELLIDOS
               td= usuarios.TELEFONO
               td= usuarios.DIRECCION
               td= usuarios.EMAIL
               td= usuarios.ID_ROL
-              td= 'Eliminar Modificar'
+              td
+                a(class=['ui button basic icon'] href='#' data-tooltip='Eliminar' data-position = 'top center' id='btn-eliminar')
+                  i(class=['trash icon'])
+
+                a(class=['ui button basic icon'] href='#' data-tooltip='Editar' data-position = 'top center' id='btn-editar')
+                  i(class=['edit icon'])
+
+  script(src='/javascripts/usuarios.js')
