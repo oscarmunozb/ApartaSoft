@@ -24,6 +24,7 @@ router.post('/eliminarUsuario',controllers.usuariocontroller.postEliminarUsuario
 router.get('/reserva',controllers.reservacontroller.getReserva);
 router.get('/nuevoReserva',controllers.reservacontroller.getNuevoReserva);
 router.post('/crearreserva',controllers.reservacontroller.postNuevoReserva);
+router.post('/eliminarReserva',controllers.reservacontroller.postEliminaReserva);
 
 //login
 router.get('/login', controllers.logincontroller.login);

@@ -32,7 +32,7 @@ module.exports = {
 	},
 
 	postNuevoInstrumento : function(req, res, next){
-		//console.log(req.body);
+		console.log(req);
 
 		var instrumentos = {
 			NOMBRE_INSTRUMENTO : req.body.nombre,

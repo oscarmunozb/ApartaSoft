@@ -7,6 +7,19 @@ block content
     div(class=['ten', 'wide', 'column'])
       h1(class=['ui','header','blue', 'dividing'])= 'Crear Reserva'
 
+      
+      if info != undefined
+        div(class=['ui', 'message', 'success'])
+          i(class=['close', 'icon'])
+          div(class='header')='Reserva registrada'
+          p= info
+
+      if error 
+        div(class=['ui', 'message', 'error'])
+          i(class=['close', 'icon'])
+          div(class='header')='No se registro'
+          p= error
+
       div(class='form-nuevoreserva')
         form(class=['ui', 'form'] action='http://localhost:3000/crearreserva' method='post')
           div(class=['ui', 'field'])
@@ -15,22 +28,27 @@ block content
           div(class=['ui', 'field'])
             label(for='referencia')= 'Codigo instrumento'
             input(type= 'text' name='referencia' placeholder='Codigo instrumento')
+
           div(class=['ui', 'field'])
-              label(for='fecha')= 'Fecha'
-              input(type= 'date' name='fecha' id='datepicker' placeholder='Fecha')
+              label(for='fechaInicio')= 'Fecha Inicio'
+              input(type= 'date' name='fechaInicio' id='datepicker' placeholder='Fecha')
+
           div(class=['ui', 'field'])
-              label(for='hora')= 'Hora'
-              input(type= 'time' name='hora' placeholder='Hora')
+              label(for='fechaFin')= 'Fecha Fin'
+              input(type= 'date' name='fechaFin' id='datepicker' placeholder='Fecha')
+
+          div(class=['ui', 'field'])
+              label(for='horaInicio')= 'Hora Inicio'
+              input(type= 'time' name='horaInicio' placeholder='Hora')
+
+          div(class=['ui', 'field'])
+              label(for='horaFin')= 'Hora Fin'
+              input(type= 'time' name='horaFin' placeholder='Hora')
+
           div(class=['ui', 'field'])
               label(for='descripcion')= 'Descripción'
               input(type= 'text' name='descripcion' placeholder='Descripción')
           button(class=['ui', 'button', 'basic', 'black'])= 'Crear Reserva'
           div(class=['ui', 'message', 'error'])
-
-      if info != undefined
-        div(class=['ui', 'message', 'success'])
-          i(class=['close', 'icon'])
-          div(class='header')='Reserva registrada'
-          p= info
 
   script(src='/javascripts/validacion.js')

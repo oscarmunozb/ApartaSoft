@@ -10,18 +10,33 @@ block content
       table(class=['ui', 'table', 'celled'] id='tbl-reserva')
         thead
           tr
-            th= 'Codigo usuario'
+            th= 'Numero de Reserva'
+            th= 'Usuario que Reserva'
             th= 'Codigo Instrumento'
-            th= 'Fecha Asignación'
-            th= 'Hora'
+            th= 'Fecha Inicio'
+            th= 'Fecha Fin'
+            th= 'Hora Inicio'
+            th= 'Hora Fin'
             th= 'Descripción'
+            th= 'Estado'
             th= 'Acciones'
         tbody
           each reservas in reserva
             tr
-              td= reservas.ID_USUARIO
-              td= reservas.ID_INSTRUMENTO
-              td= reservas.FECHA_ASIGNACION
-              td= reservas.HORA
+              td(id='identificador')= reservas.ID_RESERVA
+              td= reservas.USUARIO_ID_USUARIO
+              td= reservas.INSTRUMENTO_ID_INSTRUMENTO
+              td= reservas.FECHA_INICIO
+              td= reservas.FECHA_FIN
+              td= reservas.HORA_INICIO
+              td= reservas.HORA_FIN
               td= reservas.DESCRIPCION
-              td= 'Eliminar Modificar'
+              td= reservas.ESTADO
+              td
+                a(class=['ui button basic icon'] href='#' data-tooltip='Eliminar' data-position = 'top center' id='btn-eliminar')
+                  i(class=['trash icon'])
+
+                a(class=['ui button basic icon'] href='http://localhost:3000/modificarReserva/'+reservas.ID_RESERVA data-tooltip='Modificar' data-position = 'top center')
+                  i(class=['edit icon'])
+
+  script(src='/javascripts/reservas.js')
