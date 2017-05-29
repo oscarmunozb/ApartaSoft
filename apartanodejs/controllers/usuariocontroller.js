@@ -15,7 +15,9 @@ module.exports = {
 
 		var usuario = null;
 
-		db.query('SELECT * FROM USUARIO', function(err, rows, fields){
+		var consultaUsuarios = 'SELECT usuario.ID_USUARIO, usuario.NOMBRE, usuario.APELLIDOS, usuario.TELEFONO, usuario.DIRECCION, usuario.EMAIL, rol.DESCRIPCION FROM usuario, rol	WHERE 1=1 AND usuario.ROL_ID_ROL = rol.ID_ROL';
+
+		db.query(consultaUsuarios, function(err, rows, fields){
 			if(err) throw err;
 
 			usuario = rows;
