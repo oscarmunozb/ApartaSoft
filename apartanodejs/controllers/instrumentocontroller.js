@@ -146,8 +146,8 @@ module.exports = {
 											'	i.TIPO, ' +
 											'	r.FECHA_INICIO, ' +
 											'	r.FECHA_FIN, ' +
-											'	r.HORA_INICIO, ' +
-											'	r.HORA_FIN, ' +
+											'	TIME_FORMAT(r.HORA_INICIO,' + " '%h:%i:%p' " + ' ) HORA_INICIO, ' +
+											'	TIME_FORMAT(r.HORA_FIN,'    + " '%h:%i:%p' " + ' ) HORA_FIN, ' +
 											'	CONCAT(u.NOMBRE,' + "' '" + ', u.APELLIDOS) NOMBRES' +
 											'	FROM instrumento i, reserva r, usuario u' +
 											'	where 1=1' +
