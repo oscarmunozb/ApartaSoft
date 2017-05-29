@@ -1,0 +1,40 @@
+extends ../default
+
+block content
+  include ../templates/nav
+
+  div(class=['ui', 'container', 'grid', 'stackable'])
+    div(class=['ten', 'wide', 'column'])
+      h1(class=['ui','header','blue', 'dividing'])= 'Buscar instrumento o Sala'
+
+      div(class='form-nuevoinstrumento')
+        form(class=['ui', 'form'] action='http://localhost:3000/buscarInstNombre' method='post')
+          
+          div(class=['ui', 'field'])
+            label(for='nombre')= 'Nombre Instrumento o Sala'
+            input(type= 'text' name='nombre' placeholder='Nombre')
+
+          button(class=['ui', 'button', 'basic', 'black'])= 'Buscar'
+
+      table(class=['ui', 'table', 'celled'] id='tbl-instrumento')
+        thead
+          tr
+            th= 'Nombre Instrumento'
+            th= 'Descripcion'
+            th= 'Tipo'
+            th= 'Fecha Inicio'
+            th= 'Fecha Fin'
+            th= 'Hora Inicio'
+            th= 'Hora Fin'
+            th= 'Nombres quien Reserva'
+        tbody
+          each instrumentos in instrumento
+            tr
+              td= instrumentos.NOMBRE_INSTRUMENTO
+              td= instrumentos.DESCRIPCION
+              td= instrumentos.TIPO
+              td= instrumentos.FECHA_INICIO
+              td= instrumentos.FECHA_FIN
+              td= instrumentos.HORA_INICIO
+              td= instrumentos.HORA_FIN
+              td= instrumentos.NOMBRES

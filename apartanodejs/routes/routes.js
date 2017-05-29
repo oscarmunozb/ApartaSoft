@@ -13,6 +13,8 @@ router.post('/crearinstrumento',controllers.instrumentocontroller.postNuevoInstr
 router.post('/eliminarInstrumento',controllers.instrumentocontroller.postEliminarInstrumento);
 router.get('/modificar/:id',controllers.instrumentocontroller.getEditarInstrumento);
 router.post('/editar',controllers.instrumentocontroller.postModificarInstrumento);
+router.get('/buscarInstrumento',controllers.instrumentocontroller.getBuscarInstrumento);
+router.post('/buscarInstNombre',controllers.instrumentocontroller.postBuscarInsNombre);
 
 //rutas para usuarios
 router.get('/usuario',controllers.usuariocontroller.getUsuario);

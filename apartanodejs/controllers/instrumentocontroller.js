@@ -121,5 +121,54 @@ module.exports = {
 
 		res.redirect('/instrumento');
 
+	},
+
+	getBuscarInstrumento : function(req, res, next){
+		var instrumento = {a : 1,b : 2,c :3,d : 4,e : 5,f : 6};
+		res.render('instrumento/buscar', {instrumento : instrumento});
+	},
+
+	postBuscarInsNombre : function(req, res, next){
+		
+		var _nombreInstrumento = req.body.nombre;
+		console.log(_nombreInstrumento);
+
+		var config = require('.././database/config');
+
+		var db = mysql.createConnection(config);
+		db.connect();
+
+		var instrumento = null;
+
+		// Armo el Query
+		var consutaInstrumentoReservado = 	'	SELECT 	i.NOMBRE_INSTRUMENTO, '+
+											'	i.DESCRIPCION, ' +
+											'	i.TIPO, ' +
+											'	r.FECHA_INICIO, ' +
+											'	r.FECHA_FIN, ' +
+											'	r.HORA_INICIO, ' +
+											'	r.HORA_FIN, ' +
+											'	CONCAT(u.NOMBRE,' + "' '" + ', u.APELLIDOS) NOMBRES' +
+											'	FROM instrumento i, reserva r, usuario u' +
+											'	where 1=1' +
+											'	and i.NOMBRE_INSTRUMENTO like' + "'%" + _nombreInstrumento + "%'" +
+											'	and i.ID_INSTRUMENTO = r.INSTRUMENTO_ID_INSTRUMENTO' +
+											'	and r.USUARIO_ID_USUARIO = u.ID_USUARIO' +
+											'	order by r.FECHA_INICIO';
+
+		console.log(consutaInstrumentoReservado); 
+		
+		db.query(consutaInstrumentoReservado, function(err, rows, fields){
+			console.log(rows); 
+			if(err) throw err;
+
+			instrumento = rows;
+			db.end();
+
+			res.render('instrumento/buscar', {instrumento : instrumento});
+		});
+
+	
+		
 	}
 }
